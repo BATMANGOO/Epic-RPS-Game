@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Epic-RPS</title>
+</head>
+<body>
+  <button onclick="game()">Play Round</button>
+</body>
+<script>
+//   when player clicks a option, run a function that chooses a random option from computer.
+// compare options and return the winner of the two or a tie if both results are the same.
+// there should be a function that solely returns the computers choice.
+// the game function should have two parameters for players choice and cpu choice to compare between.
+
+  function computerPlay() {
+    let rndmNum = (Math.floor(Math.random() * 3) + 1);
+    let choice = '';
+    rndmNum === 1 ? choice = 'rock' : rndmNum === 2 ? choice = 'paper' : rndmNum === 3 ? choice = 'scissors' : null;
+
+    return choice;
+  }
+
+  function playRound(playerChoice, computerChoice) {
+    playerChoice = prompt('Choose your weapon!: [Rock, Paper, Scissors]', '').toLowerCase();
+    computerChoice = computerPlay().toLowerCase();
+
+    if (playerChoice === 'rock' && computerChoice === 'rock') {
+      return 'Tie Game!';
+    } else if (playerChoice === 'rock' && computerChoice === 'paper') {
+      return 'Paper beats Rock! You Lose!';
+    } else if (playerChoice === 'rock' && computerChoice === 'scissors') {
+      return 'Rock beats Scissors, You Win!';
+    } else if (playerChoice === 'paper' && computerChoice === 'rock') {
+      return 'Paper Beats Rock, You Win!';
+    } else if (playerChoice === 'paper' && computerChoice === 'paper') {
+      return 'Tie Game!';
+    } else if (playerChoice === 'paper' && computerChoice === 'scissors') {
+      return 'Scissors cut Paper, You Lose!';
+    } else if (playerChoice === 'scissors' && computerChoice === 'rock') {
+      return 'Paper covers Rock, You Win!';
+    } else if (playerChoice === 'scissors' && computerChoice === 'scissors') {
+      return 'Tie Game!';
+    } else if (playerChoice === 'scissors' && computerChoice === 'paper') {
+      return 'Scissors cut Paper, You Win!';
+    } else {
+      return 'ERROR!!!';
+    }
+  }
+  function game() {
+    console.log(playRound());
+  }
+</script>
+</html>
