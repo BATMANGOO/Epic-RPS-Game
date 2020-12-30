@@ -1,0 +1,42 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: space-between;
+}
+#round {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.roundScore {
+  font-size: 40px;
+  padding-left: 5px;
+}
+
+#points {
+  /* position: relative; */
+  top: 150px;
+  text-align: center;
+  font-size: 80px;
+}
+
+#choices {
+  display: flex;
+  justify-content: center;
+  justify-content: space-evenly;
+  /* position: relative; */
+  /* top: 250px; */
+}
+
+.result {
+  margin-top: 20px;
+}
+
+
