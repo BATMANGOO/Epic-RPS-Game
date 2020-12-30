@@ -8,7 +8,7 @@ let result = document.querySelector('.result');
 let roundScore = document.querySelector('.roundScore');
 let playerScore = document.querySelector('.playerScore');
 let computerScore = document.querySelector('.computerScore');
-let round = 0;
+let round = 1;
 let playerWins = 0;
 let cpuWins = 0;
 
@@ -55,24 +55,24 @@ function bestOf5(roundResult) {
   playerScore.textContent = playerWins;
   computerScore.textContent = cpuWins;
   roundScore.textContent = round;
-  if (round === 5) {
+  if (round === 6) {
     playerScore.textContent = 0;
     computerScore.textContent = 0;
-    roundScore.textContent = 0;
+    roundScore.textContent = 1;
   }
-  if (round === 5 && playerWins > cpuWins) {
+  if (round === 6 && playerWins > cpuWins) {
     result.textContent = 'Hooray, Man Beats Machine!';
-    round = 0;
+    round = 1;
     playerWins = 0;
     cpuWins = 0;
-  } else if (round === 5 && cpuWins > playerWins) {
+  } else if (round === 6 && cpuWins > playerWins) {
     result.textContent = 'Machine Triumphs over Man!';
-    round = 0;
+    round = 1;
     playerWins = 0;
     cpuWins = 0;
-  } else if (round === 5 && playerWins === cpuWins) {
+  } else if (round === 6 && playerWins === cpuWins) {
     result.textContent = 'Its a Tie!';
-    round = 0;
+    round = 1;
     playerWins = 0;
     cpuWins = 0;
   }
@@ -82,7 +82,6 @@ function game(event) {
   const target = event.target;
   if (target.tagName != 'BUTTON') return;
   bestOf5(playRound(target.value, computerPlay()));
-  return target.value;
 }
 
 container.addEventListener('click', game);
